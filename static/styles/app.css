@@ -1,0 +1,980 @@
+@font-face {
+    font-family: 'Droid';
+    font-style: normal;
+    font-weight: normal;
+    src:url('/fonts/Droid.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Droid';
+    font-style: italic;
+    font-weight: normal;
+    src:url('/fonts/Droid-Italic.woff') format('woff');
+}
+
+@media screen and (min-width: 100px) and (max-width: 359px) {
+    .day .label {
+        font-size: 17px !important;
+    }
+
+    .day .number {
+        font-size: 27px !important;
+        margin-top: 4px !important;
+        margin-left: 2px !important;
+    }
+
+    table .first {
+        background: #303030 !important;
+        color: #eaeaea;
+        font-size: 21px;
+        height: 40px;
+        text-align: center;
+    }
+
+    .header {
+        height: 60px;
+        padding-top: 8px;
+    }
+
+    .header > h1 > p {
+        font-size: 17px;
+        padding-top: 10px
+    }
+
+    .mobile {
+        display: block !important;
+    }
+
+    .tablet-td {
+        display: none;
+    }
+
+    table {
+        background: #fff;
+        height: 100%;
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+    }
+
+    table td {
+        border: 1px solid #404040;
+        font-size: 21px;
+        text-align: center;
+        position: relative
+    }
+
+    table .name {
+        margin: 5px 0 20px 0;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    table .type {
+        position: absolute;
+        bottom: 3px;
+        left: 7px;
+        font-size: 13px;
+        font-style: italic;
+    }
+
+    table .notes {
+        position: absolute;
+        color: #FFFFFF;
+        padding: 3px 5px 1px;
+        font-weight: bold;
+        top: 3px;
+        left: 7px;
+        font-size: 13px;
+        border-radius: 4px;
+        border: 1px solid #FFFFFF;
+    }
+
+    table .auditory {
+        position: absolute;
+        bottom: 3px;
+        right: 7px;
+        font-size: 13px;
+        font-style: italic;
+    }
+
+    table .time {
+        font-size: 17px;
+    }
+
+    .teacher {
+        font-size: 14px;
+        font-weight: normal;
+        white-space: pre-wrap;
+    }
+
+    .week {
+        margin: 0 !important;
+    }
+
+    .week .label {
+        margin-top: 11px !important;
+    }
+
+    .week .number {
+        margin: 0px -15px 0 12px !important;
+    }
+
+    .whichday {
+        margin: 5px auto 10px;
+        font-size: 20px;
+        font-style: italic;
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    .content {
+        margin: 0 auto;
+        min-width: 320px;
+        padding: 0 15px;
+    }
+
+    .verticalbox {
+        background: #e5e5e5;
+        min-width: 144px;
+        height: 60px;
+        border: 4px solid #444;
+        margin-right: 0.5%;
+        padding: 3px;
+        font-family: Droid;
+        font-style: italic;
+        float: left;
+        width: 49.7%;
+    }
+
+    .column-left {
+        margin: 0 auto;
+        min-width: 290px;
+        position: relative;
+        height: 66px;
+    }
+
+    .column-right {
+        min-width: 190px;
+        margin: 5px auto;
+    }
+
+    .verticalbox .label {
+        text-align: center;
+        font-size: 21px;
+        margin-top: 13px;
+    }
+
+    .verticalbox .number {
+        font-size: 33px;
+        color: #2B2B2B;
+        /* text-align: center; */
+        margin: 0px 0px 0px 10px;
+        float: left;
+        font-weight: bold;
+    }
+
+    .horizontalbox {
+        display: none !important;
+    }
+
+    .titlebox {
+        width: 100%;
+        height: auto;
+    }
+
+    .titlebox > div > p {
+        margin-top: 6px !important;
+        padding-bottom: 6px;
+        font-size: 24px !important;
+        font-weight: bold;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 699px) {
+
+    .column-left {
+        margin: 0 auto;
+        min-width: 324px;
+        position: relative;
+        height: 66px;
+    }
+
+    .column-right {
+        min-width: 324px;
+        margin: 5px auto;
+    }
+
+    .content {
+        margin: 0 auto;
+        min-width: 350px;
+        padding: 0 15px;
+    }
+
+    .day .label {
+        font-size: 18px !important;
+    }
+
+    table .first {
+        background: #303030 !important;
+        color: #eaeaea;
+        font-size: 21px;
+        height: 40px;
+        text-align: center;
+    }
+
+    .teacher {
+        font-size: 14px;
+        font-weight: normal;
+        white-space: pre-wrap;
+    }
+
+    .header {
+        height: 60px;
+        padding-top: 8px;
+    }
+
+    .header > h1 > p {
+        font-size: 19px;
+        padding-top: 10px
+    }
+
+    .mobile {
+        display: block !important;
+    }
+
+    .tablet-td {
+        display: none;
+    }
+
+    table {
+        background: #fff;
+        height: 100%;
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+    }
+
+    table td {
+        border: 1px solid #404040;
+        font-size: 21px;
+        text-align: center;
+        position: relative
+    }
+
+    table .name {
+        margin: 5px 0 20px 0;
+        display: block;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    table .type {
+        position: absolute;
+        bottom: 3px;
+        left: 7px;
+        font-size: 13px;
+        font-style: italic;
+    }
+
+    table .notes {
+        position: absolute;
+        color: #FFFFFF;
+        padding: 3px 5px 1px;
+        font-weight: bold;
+        top: 3px;
+        left: 7px;
+        font-size: 13px;
+        border-radius: 4px;
+        border: 1px solid #FFFFFF;
+    }
+
+    table .auditory {
+        position: absolute;
+        bottom: 3px;
+        right: 7px;
+        font-size: 13px;
+        font-style: italic;
+    }
+
+    table .time {
+        font-size: 17px;
+    }
+
+    .week {
+        margin: 0 !important;
+    }
+
+    .week .label {
+        margin-top: 9px !important;
+    }
+
+    .week .number {
+        margin: 0px -15px 0 18px !important;
+    }
+
+    .whichday {
+        margin: 5px auto 10px;
+        font-size: 20px;
+        font-style: italic;
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    .verticalbox {
+        background: #e5e5e5;
+        min-width: 159px;
+        height: 60px;
+        border: 4px solid #444;
+        margin-right: 0.5%;
+        padding: 3px;
+        font-family: Droid;
+        font-style: italic;
+        float: left;
+        width: 49.7%;
+    }
+
+    .verticalbox .label {
+        text-align: center;
+        font-size: 21px;
+        margin-top: 12px;
+    }
+
+    .verticalbox .number {
+        font-size: 33px;
+        color: #2B2B2B;
+        /* text-align: center; */
+        margin: 0px 0px 0px 10px;
+        float: left;
+        font-weight: bold;
+    }
+
+    .horizontalbox {
+        display: none !important;
+    }
+
+    .titlebox {
+        width: 100%;
+        height: auto;
+    }
+
+    .titlebox > div > p {
+        margin-top: 6px !important;
+        padding-bottom: 6px;
+        font-size: 24px !important;
+        font-weight: bold;
+    }
+}
+/*
+@media screen and (min-width: 700px) and (max-width: 1199px) {
+
+    .column-left {
+        float: left;
+        position: relative;
+        height: 66px;
+    }
+
+    .column-right {
+        margin-left: 300px;
+        margin-top: 30px;
+    }
+
+    .content {
+        margin: 10px auto;
+        padding: 0 15px;
+    }
+
+    .day .label {
+        font-size: 26px !important;
+    }
+
+    .day .number {
+        font-size: 140px !important;
+        margin-top: 14px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .tablet {
+        display: block !important;
+    }
+
+    .mobile-td {
+        display: none;   
+    }
+
+    table .first {
+        background: #303030 !important;
+        color: #eaeaea;
+        font-size: 21px;
+        height: 40px;
+        text-align: center;
+    }
+
+    .teacher {
+        font-size: 14px;
+        font-weight: normal;
+        white-space: pre-wrap;        
+    }
+
+    .header {
+        height: 60px;
+        padding-top: 8px;
+    }
+
+    .header > h1 > p {
+        font-size: 19px;
+    }
+
+    table {
+        background: #fff;
+        height: 230px;
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+    }
+    
+    table td {
+        border: 1px solid #404040;
+        font-size: 21px;
+        text-align: center;
+        position: relative
+    }
+
+    table .name {
+        margin: 7px 0 27px 0;
+        display: block;
+        font-size: 23px;
+    }
+
+    table .type {
+        position: absolute;
+        bottom: 8px;
+        left: 10px;
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    table .auditory {
+        position: absolute;
+        bottom: 8px;
+        right: 10px;
+        font-size: 16px;
+        font-style: italic;
+    }
+
+    table .time {
+        font-size: 19px; 
+    }
+
+    .today {
+        margin-bottom: 28px;
+    }
+
+    .week .label {
+        margin-top: -18px !important;
+    }
+
+    .whichday {
+        display: none;
+    }
+
+    .verticalbox {
+        background: #e5e5e5;
+        width: 175px;
+        height: 230px;
+        border: 4px solid #444;
+        margin: 30px;
+        padding: 3px;
+        font-family: 'Droid';;
+    }
+    
+    .verticalbox .label {
+        text-align: center;
+        font-size: 28px;
+        margin-top: -23px;
+    }
+    
+    .verticalbox .number {
+        font-size: 160px;
+        color: #2B2B2B;
+        text-align: center;
+        margin-top: -16px;
+    }
+
+    .horizontalbox {
+        display: none !important;
+    }
+
+    .column-right > span {
+        margin-top: 100px !important;
+    }
+}
+*/
+@media screen and (max-width: 10000px) and (min-width: 700px) {
+
+    .content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .day .number {
+        font-size: 140px !important;
+        margin-top: 14px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .day .label {
+        font-size: 31px !important;
+    }
+
+    .header {
+        height: 60px;
+        padding-top: 8px;
+    }
+
+    .standart {
+        display: block !important;
+    }
+
+    table {
+        background: #fff;
+        height: 250px;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table td {
+        border: 1px solid #404040;
+        font-size: 21px;
+        text-align: center;
+        position: relative;
+    }
+
+    .first {
+        background: #303030 !important;
+        color: #eaeaea;
+        font-size: 21px;
+        height: 40px;
+        text-align: center;
+    }
+
+    .header > h1 > p {
+        font-size: 20pt;
+    }
+
+    .verticalbox {
+        background: #e5e5e5;
+        width: 200px;
+        height: 250px;
+        border: 4px solid #444;
+        margin: 30px;
+        padding: 3px;
+        font-family: 'Droid';
+    }
+
+    .verticalbox .label {
+        text-align: center;
+        font-size: 38px;
+        margin-top: -29px;
+    }
+
+    .verticalbox .number {
+        font-size: 190px;
+        color: #2B2B2B;
+        text-align: center;
+        margin-top: -18px;
+    }
+
+    .column-left {
+        float: left;
+        width: 310px;
+    }
+
+    .column-right {
+        margin-left: 310px;
+        overflow: hidden;
+    }
+
+    .titlebox {
+        width: 220px !important;
+        height: 160px !important;
+    }
+
+    .titlebox > div > p {
+        width: 179px;
+        margin-top: 19px !important;
+        margin-left: 10px;
+        font-size: 28px !important;
+    }
+
+    .menu {
+        top: 60px !important;
+    }
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #F1F1F1;
+    font-family: 'Trebuchet MS', 'Arial', 'sans-serif';
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+#openmenu > span {
+    border-bottom: 10px double #eaeaea;
+    border-top: 3px solid #eaeaea;
+    cursor: pointer;
+    float: left;
+    height: 4px;
+    padding-top: 4px;
+    transition: all 0.1s ease 0s;
+    width: 25px;
+}
+
+.menu {
+    position: fixed;
+    bottom: -150px;
+    top: 60px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    opacity: 0;
+    transition: 0.1s ease;
+}
+
+.menu-ul {
+    background-color: #2B2B2B;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100px;
+    transition: 0.15s ease;
+    overflow: hidden;
+}
+
+.menu-item {
+    border-top: 1px solid #2F2F2F;
+    background: #222;
+    position: relative;
+    font-size: 19px;
+    height: 45px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.menu-item > a {
+    color: #eaeaea;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+.menu-item:hover {
+    background: #191919;
+}
+
+.menu-item-button {
+    background: seagreen;
+    position: relative;
+    cursor: pointer;
+}
+
+.opensubmenu {
+    padding: 0 5px 0 5px;
+    width: 170px;
+}
+
+.opensubmenu::after {
+    content: ">";
+    position: absolute;
+    top: -4px;
+    right: -25px;
+    color: darkseagreen;
+    font-size: 24px;
+    transform: scaley(1.8);
+}
+
+.closesubmenu {
+    padding: 14px 30px 10px 35px;
+}
+
+.closesubmenu::before {
+    content: "<";
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    color: darkseagreen;
+    font-size: 24px;
+    transform: scaley(1.8);
+}
+
+.menu-login > a {
+    color: white;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.menu-login:hover {
+    background-color: darkgreen;
+}
+
+.menu-item-button {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.menu-profile {
+    background: seagreen;
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    width: 200px;
+}
+
+.menu-profile-menu {
+    background-color: #2B2B2B;
+    transition: 0.2s ease;
+    list-style: none;
+    position: absolute;
+    left: 200px;
+    width: 200px;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.menu-login {
+    background: seagreen;
+}
+
+.content {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 50px;
+    padding-top: 70px !important;
+}
+
+footer {
+    padding-bottom: 20px;
+    bottom: 0;
+    width: 100%;
+    color: #888;
+    font-size: 14px;
+    position: absolute;
+}
+
+footer > p {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.header {
+    background: #222;
+    color: white;
+    box-shadow: 0px 2px 5px #666;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.horizontalbox {
+    background-color: #e5e5e5;
+    border: 1px solid #eaeaea;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.header > h1 > p {
+    text-align: center;
+    margin-left: 40px;
+}
+
+.standart, .mobile, .tablet {
+    display: none;
+}
+
+.teacher {
+    font-size: 14px;
+    font-weight: normal;
+    white-space: pre-wrap;
+}
+
+.teacher > a{
+    color: #000;
+}
+
+.column-right > span {
+    position: absolute;
+    left: 215px;
+    transform: rotate(270deg);
+    font-size: 27px;
+    font-style: italic;
+    margin-top: 135px;
+    height: 40px;
+    width: 250px;
+    text-align: center;
+    margin-left: -55px;
+}
+
+
+
+.no-study {
+
+}
+
+.verticalbox > div {
+    height: 100%;
+    border: 3px solid #666;
+    background: #fff;
+}
+
+.week {
+
+}
+
+.duty > td{
+    font-size: 17px !important;
+    font-style: italic;
+    color: #222;
+    font-weight: bold;
+    height: 25px;
+}
+
+input[type=text], input[type=password], input[type=email] {
+    height: 32px;
+    border: 1px solid #b5b5b5;
+    padding: 0 8px;
+    margin-top: 14px;
+    color: #444;
+    font-family: Tahoma,sans-serif;
+    transition: all .2s;
+    width: 250px;
+    box-shadow: 0px 4px 5px 0px #e1e1e1 inset;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+    border: 1px solid #4169E1;
+}
+
+input[type=submit] {
+    float: right;
+    height: 35px;
+    background: #393939;
+    border: 1px solid #222;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    font-style: italic;
+    padding: 0 15px;
+    margin-top: 10px;
+}
+
+.help-block {
+    font-size: 12px;
+    color: maroon;
+}
+
+.remember_me {
+    padding: 10px 5px 0;
+    font-size: 13px;
+    font-style: italic;
+    float: left;
+}
+
+.site-login > h1 {
+    font-size: 20px;
+    font-family: Droid;
+    font-weight: normal;
+    padding: 20px;
+    text-align: center;
+}
+
+.site-login {
+    width: 300px;
+    padding: 25px;
+    margin: 5% auto;
+}
+
+#openmenu {
+    padding: 14px 25px;
+    position: absolute
+}
+
+.register-link {
+    float: left;
+    font-size: 13px;
+    font-style: italic;
+    padding: 2px 5px;
+    color: #333399;
+}
+
+.logout-link {
+    text-align: center;
+    width: 100%;
+    color: darkgreen;
+}
+
+.notice {
+    max-width: 800px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    color: darkgreen;
+    margin: 10% auto;
+}
+
+.notice a {
+    color: #fff;
+    background: darkseagreen;
+    padding: 10px 15px;
+    border: 1px solid #2F8D34;
+    margin: 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.notice .links {
+    display: inline-block;
+    margin-top: 40px;
+}
+
+table .notes {
+    position: absolute;
+    color: #FFFFFF;
+    padding: 3px 5px 1px;
+    font-weight: bold;
+    top: 3px;
+    left: 7px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #FFFFFF;
+}

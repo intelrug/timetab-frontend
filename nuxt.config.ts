@@ -16,7 +16,7 @@ export default {
     ],
   },
   loading: { color: '#3B8070' },
-  css: [],
+  css: ['~/static/styles/app.css'],
   build: {},
   modules: [
     '@nuxtjs/axios',
