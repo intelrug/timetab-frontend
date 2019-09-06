@@ -2,7 +2,11 @@ import { MutationTree, ActionTree } from 'vuex';
 import { RootState } from '~/types';
 
 export const state = (): RootState => ({
-  art: [],
+  lessons: [],
+  groups: [],
+  teachers: [],
+  sciences: [],
+  types: [],
 });
 
 export const mutations: MutationTree<RootState> = {};
