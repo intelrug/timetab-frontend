@@ -5,7 +5,7 @@ export default {
     host: '0.0.0.0',
   },
   head: {
-    title: 'Расписание ИВТ-364',
+    title: 'Расписание для студентов',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -16,8 +16,14 @@ export default {
     ],
   },
   loading: { color: '#3B8070' },
-  css: ['~/static/styles/app.css'],
-  build: {},
+  css: ['~/static/styles/app.min.css'],
+  build: {
+    vendor: [
+      'vue2-touch-events',
+      'js-cookie',
+    ],
+  },
+  plugins: ['~plugins/vue2-touch-events'],
   modules: [
     '@nuxtjs/axios',
   ],

@@ -12,6 +12,7 @@ import {
   TeachersGetOne,
   Type, TypesGetMany, TypesGetOne,
 } from '~/types';
+import Cookies from 'js-cookie';
 
 export const state = (): RootState => ({
   lessons: [],
@@ -19,6 +20,8 @@ export const state = (): RootState => ({
   teachers: [],
   sciences: [],
   types: [],
+  menuOpened: false,
+  selectedGroupId: 2,
 });
 
 export const mutations: MutationTree<RootState> = {
@@ -76,12 +79,43 @@ export const mutations: MutationTree<RootState> = {
     if (idx === -1) return;
     state.lessons[idx] = lesson;
   },
+
+  TOGGLE_MENU(state): void {
+    state.menuOpened = !state.menuOpened;
+  },
+
+  OPEN_MENU(state): void {
+    state.menuOpened = true;
+  },
+
+  CLOSE_MENU(state): void {
+    state.menuOpened = false;
+  },
+
+  SELECT_GROUP(state, id): void {
+    state.selectedGroupId = id;
+    Cookies.set('selectedGroup', String(id), { expires: 3650 });
+  },
+
+  GET_SELECTED_GROUP(state): void {
+    const selectedGroupId = Cookies.get('selectedGroup') || '';
+    if (/\d+/.test(selectedGroupId)) {
+      state.selectedGroupId = parseInt(selectedGroupId, 10);
+    } else {
+      state.selectedGroupId = state.groups[0] ? state.groups[0].id : 1;
+      Cookies.set('selectedGroup', String(state.selectedGroupId), { expires: 3650 });
+    }
+  },
 };
 
 export const getters: GetterTree<RootState, RootState> = {
+  lessons(state): Lesson[] {
+    return state.lessons.filter(l => l.group_id === state.selectedGroupId);
+  },
+
   firstWeek(state): number[] {
     return state.lessons.reduce((acc: number[], lesson: Lesson): number[] => {
-      if (lesson.week === 1) {
+      if (lesson.week === 1 && lesson.group_id === state.selectedGroupId) {
         const idx = acc.indexOf(lesson.day);
         if (idx === -1) acc.push(lesson.day);
       }
@@ -91,7 +125,7 @@ export const getters: GetterTree<RootState, RootState> = {
 
   secondWeek(state): number[] {
     return state.lessons.reduce((acc: number[], lesson: Lesson): number[] => {
-      if (lesson.week === 2) {
+      if (lesson.week === 2 && lesson.group_id === state.selectedGroupId) {
         const idx = acc.indexOf(lesson.day);
         if (idx === -1) acc.push(lesson.day);
       }
@@ -101,7 +135,7 @@ export const getters: GetterTree<RootState, RootState> = {
 
   day(state): Function {
     return (week: number, day: number): Lesson[] => state.lessons.filter(
-      (l): boolean => l.week === week && l.day === day,
+      (l): boolean => l.week === week && l.day === day && l.group_id === state.selectedGroupId,
     );
   },
 
@@ -113,8 +147,19 @@ export const getters: GetterTree<RootState, RootState> = {
       }
       return {
         id: 0,
-        name: 'Unknown',
+        name: '',
       };
+    };
+  },
+
+  selectedGroup(state): Group {
+    const idx = state.groups.findIndex((g): boolean => g.id === state.selectedGroupId);
+    if (idx !== -1) {
+      return state.groups[idx];
+    }
+    return {
+      id: 0,
+      name: '',
     };
   },
 
@@ -126,7 +171,7 @@ export const getters: GetterTree<RootState, RootState> = {
       }
       return {
         id: 0,
-        name: 'Unknown',
+        name: '',
         link: '',
       };
     };
@@ -140,7 +185,7 @@ export const getters: GetterTree<RootState, RootState> = {
       }
       return {
         id: 0,
-        name: 'Unknown',
+        name: '',
       };
     };
   },
@@ -153,7 +198,7 @@ export const getters: GetterTree<RootState, RootState> = {
       }
       return {
         id: 0,
-        name: 'Unknown',
+        name: '',
       };
     };
   },
@@ -161,11 +206,7 @@ export const getters: GetterTree<RootState, RootState> = {
 
 export const actions: ActionTree<RootState, RootState> = {
   async GET_LESSONS({ commit }): Promise<void> {
-    const res: LessonsGetMany = await this.$axios.$get('http://timetab.intelrug.ru/api/lessons', {
-      params: {
-        groups: 1,
-      },
-    });
+    const res: LessonsGetMany = await this.$axios.$get('http://timetab.intelrug.ru:4000/lessons');
     commit('SET_GROUPS', res.groups);
     commit('SET_TEACHERS', res.teachers);
     commit('SET_SCIENCES', res.sciences);
@@ -174,7 +215,7 @@ export const actions: ActionTree<RootState, RootState> = {
   },
 
   async GET_LESSON({ commit }, id): Promise<void> {
-    const res: LessonsGetOne = await this.$axios.$get(`http://timetab.intelrug.ru/api/lessons/${id}`);
+    const res: LessonsGetOne = await this.$axios.$get(`http://timetab.intelrug.ru:4000/lessons/${id}`);
     commit('SET_GROUPS', res.groups);
     commit('SET_TEACHERS', res.teachers);
     commit('SET_SCIENCES', res.sciences);
@@ -183,42 +224,42 @@ export const actions: ActionTree<RootState, RootState> = {
   },
 
   async GET_GROUPS({ commit }): Promise<void> {
-    const res: GroupsGetMany = await this.$axios.$get('http://timetab.intelrug.ru/api/groups');
+    const res: GroupsGetMany = await this.$axios.$get('http://timetab.intelrug.ru:4000/groups');
     commit('SET_GROUPS', res.groups);
   },
 
   async GET_GROUP({ commit }, id): Promise<void> {
-    const res: GroupsGetOne = await this.$axios.$get(`http://timetab.intelrug.ru/api/groups/${id}`);
+    const res: GroupsGetOne = await this.$axios.$get(`http://timetab.intelrug.ru:4000/groups/${id}`);
     commit('SET_GROUP', res.group);
   },
 
   async GET_TEACHERS({ commit }): Promise<void> {
-    const res: TeachersGetMany = await this.$axios.$get('http://timetab.intelrug.ru/api/teachers');
+    const res: TeachersGetMany = await this.$axios.$get('http://timetab.intelrug.ru:4000/teachers');
     commit('SET_TEACHERS', res.teachers);
   },
 
   async GET_TEACHER({ commit }, id): Promise<void> {
-    const res: TeachersGetOne = await this.$axios.$get(`http://timetab.intelrug.ru/api/teachers/${id}`);
+    const res: TeachersGetOne = await this.$axios.$get(`http://timetab.intelrug.ru:4000/teachers/${id}`);
     commit('SET_TEACHER', res.teacher);
   },
 
   async GET_SCIENCES({ commit }): Promise<void> {
-    const res: SciencesGetMany = await this.$axios.$get('http://timetab.intelrug.ru/api/sciences');
+    const res: SciencesGetMany = await this.$axios.$get('http://timetab.intelrug.ru:4000/sciences');
     commit('SET_SCIENCES', res.sciences);
   },
 
   async GET_SCIENCE({ commit }, id): Promise<void> {
-    const res: SciencesGetOne = await this.$axios.$get(`http://timetab.intelrug.ru/api/sciences/${id}`);
+    const res: SciencesGetOne = await this.$axios.$get(`http://timetab.intelrug.ru:4000/sciences/${id}`);
     commit('SET_SCIENCE', res.science);
   },
 
   async GET_TYPES({ commit }): Promise<void> {
-    const res: TypesGetMany = await this.$axios.$get('http://timetab.intelrug.ru/api/types');
+    const res: TypesGetMany = await this.$axios.$get('http://timetab.intelrug.ru:4000/types');
     commit('SET_TYPES', res.types);
   },
 
   async GET_TYPE({ commit }, id): Promise<void> {
-    const res: TypesGetOne = await this.$axios.$get(`http://timetab.intelrug.ru/api/types/${id}`);
+    const res: TypesGetOne = await this.$axios.$get(`http://timetab.intelrug.ru:4000/types/${id}`);
     commit('SET_TYPE', res.type);
   },
 };

@@ -8,4 +8,6 @@ export interface RootState {
   teachers: Teacher[];
   sciences: Science[];
   types: Type[];
+  menuOpened: boolean;
+  selectedGroupId: number;
 }

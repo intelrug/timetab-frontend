@@ -36,6 +36,7 @@ module.exports = {
     "import/no-cycle": "off",
     "no-param-reassign": "off",
     "lines-between-class-members": "off",
+    "class-methods-use-this": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/explicit-member-accessibility": "off",
   }

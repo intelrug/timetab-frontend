@@ -32,6 +32,8 @@ export interface Lesson {
   teacher_id: number;
   science_id: number;
   auditory: string;
+  subgroup: number;
+  notes: string;
 }
 
 export interface LessonsGetMany {
