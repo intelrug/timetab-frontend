@@ -38,7 +38,7 @@
             <div class="timetable__science-name">
               {{ science(lesson.science_id).name }}
             </div>
-            <div class="timetable__science-teacher">
+            <div class="timetable__science-teacher" v-show="lesson.teacher_id">
               (<a :href="teacher(lesson.teacher_id).link">{{ teacher(lesson.teacher_id).name }}</a>)
             </div>
             <div class="timetable__science-info">
