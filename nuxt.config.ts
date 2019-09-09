@@ -1,7 +1,7 @@
 export default {
   env: {},
   server: {
-    port: 3000,
+    port: 8881,
     host: '0.0.0.0',
   },
   head: {
