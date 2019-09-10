@@ -26,6 +26,15 @@ export default {
   plugins: ['~plugins/vue2-touch-events'],
   modules: [
     '@nuxtjs/axios',
+    [
+      '@nuxtjs/yandex-metrika',
+      {
+        id: '55267018',
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+      },
+    ],
   ],
   axios: {},
 };
