@@ -1,18 +1,15 @@
 /* eslint-disable no-shadow */
 import { MutationTree, ActionTree, GetterTree } from 'vuex';
+import Cookies from 'js-cookie';
 import {
-  Group, GroupsGetMany,
-  GroupsGetOne,
+  Group,
   Lesson,
   LessonsGetMany, LessonsGetOne,
   RootState,
-  Science, SciencesGetMany, SciencesGetOne,
+  Science,
   Teacher,
-  TeachersGetMany,
-  TeachersGetOne,
-  Type, TypesGetMany, TypesGetOne,
+  Type,
 } from '~/types';
-import Cookies from 'js-cookie';
 
 export const state = (): RootState => ({
   lessons: [],
@@ -224,42 +221,42 @@ export const actions: ActionTree<RootState, RootState> = {
   },
 
   async GET_GROUPS({ commit }): Promise<void> {
-    const res: GroupsGetMany = await this.$axios.$get('https://timetab.intelrug.ru/api/groups');
-    commit('SET_GROUPS', res.groups);
+    const res: Group[] = await this.$axios.$get('https://timetab.intelrug.ru/api/groups');
+    commit('SET_GROUPS', res);
   },
 
   async GET_GROUP({ commit }, id): Promise<void> {
-    const res: GroupsGetOne = await this.$axios.$get(`https://timetab.intelrug.ru/api/groups/${id}`);
-    commit('SET_GROUP', res.group);
+    const res: Group = await this.$axios.$get(`https://timetab.intelrug.ru/api/groups/${id}`);
+    commit('SET_GROUP', res);
   },
 
   async GET_TEACHERS({ commit }): Promise<void> {
-    const res: TeachersGetMany = await this.$axios.$get('https://timetab.intelrug.ru/api/teachers');
-    commit('SET_TEACHERS', res.teachers);
+    const res: Teacher[] = await this.$axios.$get('https://timetab.intelrug.ru/api/teachers');
+    commit('SET_TEACHERS', res);
   },
 
   async GET_TEACHER({ commit }, id): Promise<void> {
-    const res: TeachersGetOne = await this.$axios.$get(`https://timetab.intelrug.ru/api/teachers/${id}`);
-    commit('SET_TEACHER', res.teacher);
+    const res: Teacher = await this.$axios.$get(`https://timetab.intelrug.ru/api/teachers/${id}`);
+    commit('SET_TEACHER', res);
   },
 
   async GET_SCIENCES({ commit }): Promise<void> {
-    const res: SciencesGetMany = await this.$axios.$get('https://timetab.intelrug.ru/api/sciences');
-    commit('SET_SCIENCES', res.sciences);
+    const res: Science[] = await this.$axios.$get('https://timetab.intelrug.ru/api/sciences');
+    commit('SET_SCIENCES', res);
   },
 
   async GET_SCIENCE({ commit }, id): Promise<void> {
-    const res: SciencesGetOne = await this.$axios.$get(`https://timetab.intelrug.ru/api/sciences/${id}`);
-    commit('SET_SCIENCE', res.science);
+    const res: Science = await this.$axios.$get(`https://timetab.intelrug.ru/api/sciences/${id}`);
+    commit('SET_SCIENCE', res);
   },
 
   async GET_TYPES({ commit }): Promise<void> {
-    const res: TypesGetMany = await this.$axios.$get('https://timetab.intelrug.ru/api/types');
-    commit('SET_TYPES', res.types);
+    const res: Type[] = await this.$axios.$get('https://timetab.intelrug.ru/api/types');
+    commit('SET_TYPES', res);
   },
 
   async GET_TYPE({ commit }, id): Promise<void> {
-    const res: TypesGetOne = await this.$axios.$get(`https://timetab.intelrug.ru/api/types/${id}`);
-    commit('SET_TYPE', res.type);
+    const res: Type = await this.$axios.$get(`https://timetab.intelrug.ru/api/types/${id}`);
+    commit('SET_TYPE', res);
   },
 };

@@ -51,35 +51,3 @@ export interface LessonsGetOne {
   sciences: Science[];
   types: Type[];
 }
-
-export interface GroupsGetMany {
-  groups: Group[];
-}
-
-export interface GroupsGetOne {
-  group: Group;
-}
-
-export interface TeachersGetMany {
-  teachers: Teacher[];
-}
-
-export interface TeachersGetOne {
-  teacher: Teacher;
-}
-
-export interface SciencesGetMany {
-  sciences: Science[];
-}
-
-export interface SciencesGetOne {
-  science: Science;
-}
-
-export interface TypesGetMany {
-  types: Type[];
-}
-
-export interface TypesGetOne {
-  type: Type;
-}
